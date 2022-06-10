@@ -34,13 +34,17 @@ export default function HomePage({ navigation }){
                     <Text style={styles.text2}>
                         Nike Air {'\n'}Max 90
                     </Text>
+                    <View style={styles.card}>
+                        <Text >Shop Now</Text>
                     </View>
-                    <View>
+                    </View>
+                  
+                    <View style={{paddingLeft:80}}>
                      <Image
                         style={{
                         width: 190,
                         height: 120,
-                        marginHorizontal:10,
+                      
                         
                          }}
                         source={require("../images/nike(red).jpg")}/>
@@ -61,44 +65,39 @@ const styles = StyleSheet.create({
       
 
     },
-    firstcard:{ 
-    flexDirection:"row",
-    justifyContent: "center",
-    alignItems:'stretch',
-    width: 360,
-    height: 150,
-    borderRadius: 20,
-    padding: 10,
-    paddingHorizontal: 15,
-    backgroundColor: "#eee",
-    marginVertical: 10,
-    marginHorizontal:25,
-
-    },
+ 
     text1:{
         color:"white",
-
+        paddingLeft:40
     },
     text2:{
         color:"white",
         fontSize:25, 
-        fontWeight:"bold"
+        fontWeight:"bold",
+        paddingLeft:40
     },
     linearGradient: {
         flexDirection:"row",
         justifyContent: "center",
         alignItems:'stretch',
-   
-    width: 360,
-    height: 150,
-    borderRadius: 20,
-    padding: 10,
-    paddingHorizontal: 15,
-    backgroundColor: "#eee",
-    marginVertical: 10,
-    marginHorizontal:25,
+        width: 360,
+        height: 165,
+        borderRadius: 20,
+        padding: 18,
+        marginVertical: 15,
+        marginHorizontal:15,
       
       },
+    card:{
+        borderRadius: 50,
+        backgroundColor: "#eee",
+       padding:10,
+        marginVertical: 10,
+        marginLeft:30,
+        justifyContent:"center",
+        alignItems:"center"
+        
+    }
     
 
 });
