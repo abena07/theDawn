@@ -11,11 +11,12 @@ export default function LandingPage({ navigation }){
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
+      
        }}>
         
       <LinearGradient
-          colors={['3E3737', 'F35B2B' ]}
-          locations ={[0.8,  0.9]}
+          colors={['#272320', '#DB5F39' ]}
+          locations ={[0.6,  0.9]}
           style={styles.linearGradient}
         >
           <Image
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
       basetext:{
         fontWeight: "bold", fontSize: 50 ,color:"white", textAlign:"center"}, 
 
-        text:{color:"white", fontsize:10, textAlign:"center"}
+        text:{color:"white", fontSize:10, textAlign:"center"}
 
 
 });
