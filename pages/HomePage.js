@@ -3,6 +3,7 @@ import { StyleSheet , Text, View, Image} from "react-native";
 import { Feather } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import {LinearGradient} from 'expo-linear-gradient';
+import Categories from "../components/Categories";
 
 
 
@@ -51,6 +52,7 @@ export default function HomePage({ navigation }){
                     </View>
             
                 </LinearGradient>
+                <Categories/>
         </View>
   
     );
@@ -91,7 +93,7 @@ const styles = StyleSheet.create({
     card:{
         borderRadius: 50,
         backgroundColor: "#eee",
-       padding:10,
+        padding:10,
         marginVertical: 10,
         marginLeft:30,
         justifyContent:"center",
