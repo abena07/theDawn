@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity,Image } from "react-native";
+import { FlatList } from "react-native-gesture-handler";
 
-const Category = ({ text, color }) => {
+const Category = ({ text ,backgroundColor, color}) => {
   const [col, setCol] = useState(color);
+  const [bgCol, setBgcol]= useState(backgroundColor);
   return (
     <TouchableOpacity
-      onPress={() => (col === "#000" ? setCol("fff") : setCol("#000"))}
+      onPress={() => (col === "#000" ? setCol("#fff") : setCol("#000") && bgCol== "#fff" ? setBgcol("#E94D2B"): setBgcol("#fff"))}
       style={{
         alignItems: "center",
         padding: 8,
         backgroundColor: "#fff",
         borderRadius: 20,
-        justifyContent:"center"
+        justifyContent:"center",
+        marginHorizontal:20
         
       }}
     >
@@ -30,7 +33,7 @@ const Category = ({ text, color }) => {
       />
         </View>
       
-      <Text style={{ color: "black" , marginTop:5}}>{text}</Text>
+      <Text style={{ color: col , marginTop:5}}>{text}</Text>
         </View>
        
     </TouchableOpacity>
@@ -40,8 +43,8 @@ const Category = ({ text, color }) => {
 const Nav = () => {
   return (
     <View style={styles.nav}>
-      <Category text="Lifestyle" color="fff"  backgroundColor="#E94A2"/>
-      <Category text="Basketball" color="#000" />
+      <Category text="Lifestyle" color="#000"  />
+      <Category text="Basketball" color="#000"  />
       <Category text="Running" color="#000" />
     
     </View>

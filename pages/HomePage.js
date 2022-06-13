@@ -4,6 +4,8 @@ import { Feather } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import {LinearGradient} from 'expo-linear-gradient';
 import Categories from "../components/Categories";
+import Shoes from '../components/Shoes';
+
 
 
 
@@ -53,6 +55,7 @@ export default function HomePage({ navigation }){
             
                 </LinearGradient>
                 <Categories/>
+                <Shoes/>
         </View>
   
     );
