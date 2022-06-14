@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Text, Image } from "react-native";
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons , Feather} from '@expo/vector-icons';
 import TinyShoes from "../components/TinyShoes";
-
+import TinySizes from "../components/TinySizes";
+import Button from "../components/Button";
 
 
 export default function Home({ navigation , route}) {
@@ -25,13 +26,35 @@ export default function Home({ navigation , route}) {
         <Image style={styles.imagecontainer} source={image}
         />
 
-        <View style={styles.third}>
+    <View style={styles.third}>
         <View style={styles.textcontainer}>
-                <View style={{flexDirection:"row", justifyContent:"space-between"}}>
+                <View style={{flexDirection:"row", justifyContent:"space-between",marginTop:10}}>
                 <Text style={styles.type}>{type}</Text>
                 <Text style={styles.price}>{price}</Text>
                 </View>
-            <Text style={styles.name}>{name}</Text>
+
+                <Text style={styles.name}>{name}</Text>
+                <TinyShoes/>
+
+                <View style={styles.sizecontainer}> 
+                    <Text style={{fontSize:23}}>
+                        Size
+                    </Text>
+                    <Text style={{color:"#E7E7E7", marginTop:6, fontSize:13}}>
+                        Size Guide
+                    </Text>
+                </View>
+              
+                <TinySizes/>
+                <View style={styles.sizecontainer}>
+                <Text style={{fontSize:18, fontWeight:"400"}}>
+                    Description
+                </Text>
+                <Feather name="chevron-down" size={24} color="black" />
+            
+                </View>
+                <Button/>
+                
         </View>
        
         </View>
@@ -77,6 +100,12 @@ textcontainer:{
 price:{
     fontSize:25,
     fontWeight:"400"
+},
+
+sizecontainer:{
+    flexDirection:"row",
+    justifyContent:"space-between",
+    marginTop:12
 }
   
 });

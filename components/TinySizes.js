@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity,Image } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 
-const TinyShoes = ({ text ,backgroundColor, color}) => {
+const TinySizes = ({ text ,backgroundColor, color}) => {
   const [col, setCol] = useState(color);
   const [bgCol, setBgcol]= useState(backgroundColor);
   return (
@@ -10,28 +10,20 @@ const TinyShoes = ({ text ,backgroundColor, color}) => {
       onPress={() => (col === "#000" ? setCol("#fff") : setCol("#000") && bgCol== "#fff" ? setBgcol("#E94D2B"): setBgcol("#fff"))}
       style={{
         alignItems: "center",
-        padding: 10,
+        padding: 8,
         backgroundColor: "#fff",
         borderRadius: 20,
         justifyContent:"center",
         marginTop:15
-
-        
      
         
       }}
     >
         <View style={styles.nav}>
-        <View style={styles.image}>
-        <Image
-        style={{
-          width: 30,
-          height: 30, 
-        }}
-        source={require("../images/nike(red).jpg")}
-      />
+        <View style={styles.text}>
+        <Text style={{ color: col }}>{text}</Text>
         </View>
-        <Text style={{ color: col , marginTop:5}}>{text}</Text>
+        
         </View>
        
     </TouchableOpacity>
@@ -41,10 +33,11 @@ const TinyShoes = ({ text ,backgroundColor, color}) => {
 const Nav = () => {
   return (
     <View style={styles.nav}>
-      <TinyShoes color="#000"  />
-      <TinyShoes color="#000"/>
-      <TinyShoes color="#000"/>
-      <TinyShoes color="#000"/>
+      <TinySizes color="#000"  text="40" />
+      <TinySizes color="#000" text="41"/>
+      <TinySizes color="#000" text="41.5"/>
+      <TinySizes color="#000" text="42"/>
+      <TinySizes color="#000" text="42.5"/>
       
       
     </View>
@@ -58,11 +51,12 @@ const styles = StyleSheet.create({
     
   },
 
-  image:{
+  text:{
       backgroundColor:"#F6F6F6",
-      paddingHorizontal:18,
-      paddingVertical:12,
+      padding:16,
       borderRadius:5,
+      marginTop:5,
+      
       
       
   }
