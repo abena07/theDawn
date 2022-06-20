@@ -6,7 +6,7 @@ import TinySizes from "../components/TinySizes";
 import Button from "../components/Button";
 
 
-export default function Home({ navigation , route}) {
+export default function Home({ route}) {
     const { name, price, image, type } = route.params.data;
 
   return (

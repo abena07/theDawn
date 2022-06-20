@@ -5,6 +5,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import  LandingPage from './pages/LandingPage';
 import HomePage  from './pages/HomePage';
 import ProductDetails from './pages/ProductDetails';
+import CartPage from './pages/CartPage';
 
 export default function App() {
   const MainNavigator = createStackNavigator();
@@ -15,6 +16,7 @@ export default function App() {
         <MainNavigator.Screen name ="LandingPage" component={LandingPage}/>
         <MainNavigator.Screen name='HomePage' component={HomePage}/>
         <MainNavigator.Screen name="ProductDetails" component={ProductDetails}/>
+        <MainNavigator.Screen name="CartPage" component={CartPage}/>
         </MainNavigator.Navigator>
       </NavigationContainer>
       

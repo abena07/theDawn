@@ -2,13 +2,17 @@ import React from "react";
 import{Text,View,Image ,StyleSheet} from "react-native";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { useNavigation } from '@react-navigation/native';
 
 
 
-export default function Button(){
+export default function Button({}){
+    const navigation = useNavigation();
     return(
         <View >
-            <TouchableOpacity>
+            <TouchableOpacity  onPress={() =>
+              navigation.navigate("CartPage" )
+            }>
                 <View style={styles.main}>
                 <MaterialCommunityIcons name="cart-outline" size={24} color="#fff" />
                 <Text style={styles.text}>Add To Cart</Text>
