@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity,Image } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 
-const CartShoes = ({ text ,backgroundColor, color}) => {
+const CartShoes = ({ text ,backgroundColor, color, route}) => {
   const [col, setCol] = useState(color);
   const [bgCol, setBgcol]= useState(backgroundColor);
+  const {  price, type ,size} = route?.params || {};
   return (
     <TouchableOpacity
       onPress={() => (col === "#000" ? setCol("#fff") : setCol("#000") && bgCol== "#fff" ? setBgcol("#E94D2B"): setBgcol("#fff"))}
@@ -14,10 +15,7 @@ const CartShoes = ({ text ,backgroundColor, color}) => {
         borderRadius: 20,
         justifyContent:"center",
         marginTop:15
-
-        
-     
-        
+  
       }}
     >
         <View style={styles.nav}>
@@ -31,6 +29,11 @@ const CartShoes = ({ text ,backgroundColor, color}) => {
       />
         </View>
         <Text style={{ color: col , marginTop:5}}>{text}</Text>
+        <View >
+        <Text style={styles.type}>{type}hi</Text>  
+        <Text style={styles.size}>{size}lo</Text>
+        <Text style={styles.price}>{price}up</Text>
+        </View>
         </View>
        
     </TouchableOpacity>
@@ -64,7 +67,16 @@ const styles = StyleSheet.create({
       borderRadius:5,
       
       
-  }
+  },
+  type:{
+    fontSize:16,
+},
+size:{fontSize:12
+},
+price:{
+    fontSize:18,
+    fontWeight:"200"
+}
 });
 
 export default Nav;

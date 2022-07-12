@@ -6,7 +6,10 @@ import CartShoes from "../components/CartShoes";
 
 
 
-export default function CartPage({navigation }){
+export default function CartPage({route }){
+
+
+
 
     return(
     <View >
@@ -20,6 +23,7 @@ export default function CartPage({navigation }){
          {/* checkbox */}
         
         <CartShoes/>
+      
          
         
     </View>
@@ -36,6 +40,7 @@ const styles = StyleSheet.create({
     cart:{
         fontSize:18,
         fontWeight:"400"
-    }
+    },
+
 
 })

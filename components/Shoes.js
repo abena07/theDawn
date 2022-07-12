@@ -15,6 +15,7 @@ export default function Shoes({}){
           price: "$99.56",
           key: "1",
           image: require("../images/nike(red).jpg"),
+          Size:"Size 42"
         },
         {
           name: "Men's Shoe",
@@ -22,6 +23,7 @@ export default function Shoes({}){
           price: "$137.50",
           key: "3",
           image: require("../images/nike(red).jpg"),
+          Size:"Size 42"
         },
 
         {
@@ -30,6 +32,7 @@ export default function Shoes({}){
             price: "$99.56",
             key: "4",
             image: require("../images/nike(red).jpg"),
+            Size:"Size 42"
           },
           {
             name: "Men's Shoe",
@@ -37,6 +40,8 @@ export default function Shoes({}){
             price: "$137.50",
             key: "2",
             image: require("../images/nike(red).jpg"),
+            Size:"Size 42"
+        
           },
      
       ]);
