@@ -26,6 +26,7 @@ export default function Shoes({}){
           Size:"Size 42"
         },
 
+        
         {
             name: "Men's Shoes",
             type:"Creter impact",
