@@ -10,8 +10,10 @@ export default function Button({}){
     const navigation = useNavigation();
     return(
         <View >
-            <TouchableOpacity  onPress={() =>
-              navigation.navigate("CartPage" )
+            <TouchableOpacity  onPress={() =>{
+                console.log("Hello")
+                navigation.navigate("CartPage",{hello: "hsbhs"} )
+            }
             }>
                 <View style={styles.main}>
                 <MaterialCommunityIcons name="cart-outline" size={24} color="#fff" />

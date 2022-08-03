@@ -6,6 +6,9 @@ const CartShoes = ({ text ,backgroundColor, color, route}) => {
   const [col, setCol] = useState(color);
   const [bgCol, setBgcol]= useState(backgroundColor);
   const {  price, type ,size} = route?.params || {};
+
+  console.log(route?.params, "route?.params")
+
   return (
     <TouchableOpacity
       onPress={() => (col === "#000" ? setCol("#fff") : setCol("#000") && bgCol== "#fff" ? setBgcol("#E94D2B"): setBgcol("#fff"))}
