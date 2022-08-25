@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity,Image } from "react-native";
+import Shoes from "./Shoes";
 import { FlatList } from "react-native-gesture-handler";
 
 const CartShoes = ({ text ,backgroundColor, color, route}) => {
   const [col, setCol] = useState(color);
   const [bgCol, setBgcol]= useState(backgroundColor);
-  const {  price, type ,size} = route?.params || {};
+  const {price, type ,size} = route?.params || {};
 
   console.log(route?.params, "route?.params")
 

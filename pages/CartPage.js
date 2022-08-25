@@ -7,6 +7,7 @@ import CartShoes from "../components/CartShoes";
 
 
 export default function CartPage({ route }) {
+    // const {  price, type ,size} = route.params.data;
 
 
 
