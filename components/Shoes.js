@@ -5,7 +5,7 @@ import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
 
-export default function Shoes({ }) {
+export default function Shoes() {
     const navigation = useNavigation();
 
     const [details, setDetails] = useState([
