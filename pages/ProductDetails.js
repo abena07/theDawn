@@ -1,13 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import { StyleSheet, View, Text, Image } from "react-native";
 import { Ionicons , Feather} from '@expo/vector-icons';
 import TinyShoes from "../components/TinyShoes";
 import TinySizes from "../components/TinySizes";
 import Button from "../components/Button";
+import { useNavigation } from "@react-navigation/native";
 
 
 export default function ProductDetails({ route}) {
+    const navigation = useNavigation();
     const { name, price, image, type } = route.params.data;
+
+    const passData = () => {
+        navigation.navigate("CartPage", {
+            type: type,
+            price: price,
+        })
+    }
 
   return (
     <View
@@ -47,17 +56,20 @@ export default function ProductDetails({ route}) {
               
                 <TinySizes/>
                 <View style={styles.sizecontainer}>
-                <Text style={{fontSize:18, fontWeight:"400"}}>
-                    Description
-                </Text>
-                <Feather name="chevron-down" size={24} color="black" />
-            
+                    <Text style={{fontSize:18, fontWeight:"400"}}>
+                        Description
+                    </Text>
+                    <Feather name="chevron-down" size={24} color="black" />
                 </View>
-                <Button/>
-                
-        </View>
-       
-        </View>
+                <Button
+                    iconName="cart-outline"
+                    iconSize={24}
+                    iconCol="#fff"
+                    buttonName="Add To Cart"
+                    onPress={passData}
+                />
+        </View>   
+    </View>
         
     </View>
     

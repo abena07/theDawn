@@ -2,12 +2,12 @@ import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { AntDesign, Entypo } from '@expo/vector-icons';
 // import { CheckBox } from "react-native-elements";
-import CartShoes from "../components/CartShoes";
+
 
 
 
 export default function CartPage({route }) {
-    const {type, size, price} = route.params.data;
+    const {type, size, price} = route.params;
 
 
 
@@ -23,9 +23,12 @@ export default function CartPage({route }) {
 
             {/* checkbox */}
 
-            <CartShoes />
 
+            
 
+            <Text> {type} </Text>
+            <Text> {price} </Text>
+            <Text>{size}</Text>
 
         </View>
 
