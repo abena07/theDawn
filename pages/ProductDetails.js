@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text, Image } from "react-native";
+import { StyleSheet, View, Text, Image ,TouchableOpacity} from "react-native";
 import { Ionicons , Feather} from '@expo/vector-icons';
 import TinyShoes from "../components/TinyShoes";
 import TinySizes from "../components/TinySizes";
@@ -28,7 +28,9 @@ export default function ProductDetails({ route}) {
       }}
     >
         <View style={styles.second}>
+            <TouchableOpacity onPress={()=>navigation.goBack()}>
             <Ionicons name="chevron-back" size={24} color="black" />
+            </TouchableOpacity>
             <Ionicons name="heart-outline" size={24} color="black" />          
         </View>
 

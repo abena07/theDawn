@@ -1,12 +1,13 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text,TouchableOpacity } from "react-native";
 import { AntDesign, Entypo } from '@expo/vector-icons';
+
 // import { CheckBox } from "react-native-elements";
 
 
 
 
-export default function CartPage({route }) {
+export default function CartPage({route ,navigation}) {
     const {type, size, price} = route.params;
 
 
@@ -15,9 +16,13 @@ export default function CartPage({route }) {
     return (
         <View >
             <View style={styles.header}>
+            <TouchableOpacity onPress={()=>navigation.goBack()}>
                 <AntDesign name="left" size={20} color="black" />
+                </TouchableOpacity>
                 <Text style={styles.cart}>Cart</Text>
+                
                 <Entypo name="dots-three-vertical" size={20} color="black" />
+                
             </View>
 
 
