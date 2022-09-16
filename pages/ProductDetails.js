@@ -9,12 +9,17 @@ import { useNavigation } from "@react-navigation/native";
 
 export default function ProductDetails({ route}) {
     const navigation = useNavigation();
-    const { name, price, image, type } = route.params.data;
+    const { name, price, image, type,size } = route.params.data;
 
     const passData = () => {
         navigation.navigate("CartPage", {
             type: type,
             price: price,
+            image:image,
+            name:name,
+            size:size,
+
+
         })
     }
 

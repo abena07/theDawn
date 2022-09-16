@@ -15,12 +15,12 @@ export default function Shoes() {
             price: "$99.56",
             key: "1",
             image: require("../images/nike(red).jpg"),
-            size: "Size 42"
+            size: "Size 40"
         },
         {
             name: "Men's Shoe",
-            type: "Air Max Pre-day",
-            price: "$137.50",
+            type: "Nike Dunks",
+            price: "$120.50",
             key: "3",
             image: require("../images/nike(red).jpg"),
             size: "Size 42"
@@ -29,11 +29,11 @@ export default function Shoes() {
 
         {
             name: "Men's Shoes",
-            type: "Creter impact",
-            price: "$99.56",
+            type: "AirForce 1",
+            price: "$409.56",
             key: "4",
             image: require("../images/nike(red).jpg"),
-            size: "Size 42"
+            size: "Size 39"
         },
         {
             name: "Men's Shoe",
@@ -41,7 +41,7 @@ export default function Shoes() {
             price: "$137.50",
             key: "2",
             image: require("../images/nike(red).jpg"),
-            size: "Size 42"
+            size: "Size 41"
 
         },
 
