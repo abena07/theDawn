@@ -5,12 +5,21 @@ import TinyShoes from "../components/TinyShoes";
 import TinySizes from "../components/TinySizes";
 import Button from "../components/Button";
 import { useNavigation } from "@react-navigation/native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 export default function ProductDetails({ route}) {
     const navigation = useNavigation();
     const { name, price, image, type,size } = route.params.data;
+    const value = {
+        type: type,
+        price: price,
+        image:image,
+        name:name,
+        size:size,
+      };
 
+   
     const passData = () => {
         navigation.navigate("CartPage", {
             type: type,
@@ -22,6 +31,27 @@ export default function ProductDetails({ route}) {
 
         })
     }
+
+      //Store data
+      const storeProduct = async () => {
+        try {
+          await AsyncStorage.setItem("user", JSON.stringify(value));
+          console.log("success");
+        } catch (error) {
+          console.log(error);
+        }
+      };
+     ///get stored data
+      const getProduct = async () => {
+        try {
+          const savedProduct = await AsyncStorage.getItem("user");
+          const currentProduct = JSON.parse(savedProduct);
+          console.log("just got it");
+          console.log(currentProduct);
+        } catch (error) {
+          console.log(error);
+        }
+      };
 
   return (
     <View
@@ -73,7 +103,16 @@ export default function ProductDetails({ route}) {
                     iconSize={24}
                     iconCol="#fff"
                     buttonName="Add To Cart"
-                    onPress={passData}
+                    
+                    onPress={() => {
+                       passData
+                       storeProduct()
+                       getProduct()
+                       }}
+                      
+
+
+                    
                 />
         </View>   
     </View>

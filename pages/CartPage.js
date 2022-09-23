@@ -1,19 +1,17 @@
 import React from "react";
 import { StyleSheet, View, Text,TouchableOpacity ,Image} from "react-native";
 import { AntDesign, Entypo } from '@expo/vector-icons';
-import AsyncStorage from 'react-native-async-storage/async-storage';
+
+
 // import { CheckBox } from "react-native-elements";
 
 
 
 
 export default function CartPage({route ,navigation}) {
+   
     const {type, size, price, image, } = route.params;
-
-    const getEntries = async () => {
-        await AsyncStorage.setItem('key', 'val');
-        const value = await AsyncStorage.getItem('key');
-        console.log(value);}
+  
 
 
     return (
@@ -36,21 +34,27 @@ export default function CartPage({route ,navigation}) {
             
 
             <Image style={styles.imagecontainer} source={image}/>
-             <TouchableOpacity>
+             <View>
             <Text style={styles.typecontainer}> {type} </Text>
 
             <Text style={styles.sizecontainer}>{size}</Text>
+           
+            <View style={styles.contentdisplay}>
             <Text style={styles.pricecontainer}> {price} </Text>
+            <View style={styles.button}>
+            <AntDesign name="minuscircleo" size={20} color="black" />
+            <Text>    1   </Text>
+            
+            <AntDesign name="pluscircleo" size={20} color="black" />
+            </View>
+            
+            </View>
             
         
           
         
-            </TouchableOpacity>
-            <View style={styles.contentdisplay}>
-            <AntDesign name="minuscircleo" size={24} color="black" />
-            <AntDesign name="pluscircleo" size={24} color="black" />
-
             </View>
+        
             
             </View>
             
@@ -65,11 +69,12 @@ const styles = StyleSheet.create({
     header: {
         flexDirection: "row",
         paddingTop: 80,
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        padding:20
     },
     cart: {
-        fontSize: 18,
-        fontWeight: "400"
+        fontSize: 20,
+        fontWeight:"500"
     },
     pricecontainer:{
         fontSize:22,
@@ -84,14 +89,17 @@ const styles = StyleSheet.create({
     },
     contentdisplay:{
         flexDirection:"row",
-     justifyContent:"space-between",
-     paddingRight:200
+        justifyContent:"space-between",
+        paddingTop:4,
+        
+        
     
     },
     sizecontainer:{
         fontSize:14,
         color:"#DADADA",
-        fontWeight:"400",
+        fontWeight:"500",
+        paddingLeft:6       
 
     },
     typecontainer:{
@@ -99,6 +107,15 @@ const styles = StyleSheet.create({
         fontSize:18,
         fontWeight:"600",
      
+    },
+    button:{
+        paddingTop:5,
+        flexDirection:"row",
+        justifyContent:"space-between",
+        paddingRight:20,
+        paddingLeft:80,
+        
+        
     }
 
 
