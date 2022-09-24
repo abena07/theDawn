@@ -1,4 +1,5 @@
 import React from "react";
+import {useState, useEffect} from "react";
 import { StyleSheet, View, Text, Image ,TouchableOpacity} from "react-native";
 import { Ionicons , Feather} from '@expo/vector-icons';
 import TinyShoes from "../components/TinyShoes";
@@ -10,6 +11,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function ProductDetails({ route}) {
     const navigation = useNavigation();
+    const [showData, setShowData] = useState();
     const { name, price, image, type,size } = route.params.data;
     const value = {
         type: type,
@@ -21,6 +23,7 @@ export default function ProductDetails({ route}) {
 
    
     const passData = () => {
+     
         navigation.navigate("CartPage", {
             type: type,
             price: price,
@@ -36,11 +39,26 @@ export default function ProductDetails({ route}) {
       const storeProduct = async () => {
         try {
           await AsyncStorage.setItem("user", JSON.stringify(value));
+          for (let i = 0; i < JSON.length; i++) {
+        
+            setShowData({
+              name:  JSON.stringify[i].name,
+              type:  JSON.stringify[i].type,
+              price:  JSON.stringify[i].price,
+              image: JSON.stringify[i].image,
+              size: JSON.stringify[i].size,
+            
+            });
+          }
+            
           console.log("success");
         } catch (error) {
           console.log(error);
         }
       };
+      useEffect(()=>{
+        getProduct();
+      },[])
      ///get stored data
       const getProduct = async () => {
         try {
@@ -74,6 +92,7 @@ export default function ProductDetails({ route}) {
 
     <View style={styles.third}>
         <View style={styles.textcontainer}>
+            
                 <View style={{flexDirection:"row", justifyContent:"space-between",marginTop:10}}>
                 <Text style={styles.type}>{type}</Text>
                 <Text style={styles.price}>{price}</Text>
@@ -105,9 +124,10 @@ export default function ProductDetails({ route}) {
                     buttonName="Add To Cart"
                     
                     onPress={() => {
-                       passData
+                       passData()
                        storeProduct()
                        getProduct()
+                      
                        }}
                       
 

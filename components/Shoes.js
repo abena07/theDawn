@@ -10,7 +10,7 @@ export default function Shoes() {
 
     const [details, setDetails] = useState([
         {
-            name: "Men's Shoes",
+            name: "School Shoes",
             type: "Creter impact",
             price: "$99.56",
             key: "1",
@@ -18,7 +18,7 @@ export default function Shoes() {
             size: "Size 40"
         },
         {
-            name: "Men's Shoe",
+            name: "Gym Shoe",
             type: "Nike Dunks",
             price: "$120.50",
             key: "3",
