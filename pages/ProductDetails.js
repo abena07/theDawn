@@ -11,7 +11,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function ProductDetails({ route }) {
     const navigation = useNavigation();
-    const [showData, setShowData] = useState();
+    const [showData, setShowData] = useState([]);
     const { name, price, image, type, size } = route.params.data;
     const value = {
         type: type,
@@ -41,17 +41,20 @@ export default function ProductDetails({ route }) {
             await AsyncStorage.setItem("user", JSON.stringify(value));
             for (let i = 0; i < JSON.length; i++) {
                 //i'm trying to loop through the data and populate the result
-                setShowData({
-                    name: JSON.stringify[i].name,
-                    type: JSON.stringify[i].type,
-                    price: JSON.stringify[i].price,
-                    image: JSON.stringify[i].image,
-                    size: JSON.stringify[i].size,
-
-                });
+                setShowData([
+                    ...showData,
+                    {
+                        name: JSON.stringify[i].name,
+                        type: JSON.stringify[i].type,
+                        price: JSON.stringify[i].price,
+                        image: JSON.stringify[i].image,
+                        size: JSON.stringify[i].size,
+                    },
+                  ])
             }
 
             console.log("success");
+            console.log(setShowData);
         } catch (error) {
             console.log(error);
         }
@@ -75,16 +78,20 @@ export default function ProductDetails({ route }) {
 
     //if statement
     if (showData) {
+        {showData.map((data) => (data))};
         console.log("bbrrrr")
         return (
+            
             <View
-                style={{
+            // 
+                styles={{
                     backgroundColor: "#F6F6F6",
                     flex: 1,
                     paddingTop: 55,
 
                 }}
             >
+                
 
                 <View style={styles.second}>
                     <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -92,7 +99,7 @@ export default function ProductDetails({ route }) {
                     </TouchableOpacity>
                     <Ionicons name="heart-outline" size={24} color="black" />
                 </View>
-
+                    
                 <Image style={styles.imagecontainer} source={image}
                 />
 
@@ -105,7 +112,7 @@ export default function ProductDetails({ route }) {
                         </View>
 
                         <Text style={styles.name}>{name}</Text>
-                        
+
                         <TinyShoes />
 
                         <View style={styles.sizecontainer}>
@@ -131,7 +138,6 @@ export default function ProductDetails({ route }) {
                             iconSize={24}
                             iconCol="#fff"
                             buttonName="Add To Cart"
-
                             onPress={() => {
                                 passData()
                                 storeProduct()
@@ -141,18 +147,22 @@ export default function ProductDetails({ route }) {
 
                         />
                     </View>
+                    
                 </View>
-
+                  
             </View>
-
+                            
 
 
         );
+        
     }
-
+    
+    
     else {
         return null;
     }
+    
 }
 
 const styles = StyleSheet.create({
